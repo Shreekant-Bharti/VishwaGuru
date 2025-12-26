@@ -93,7 +93,7 @@ The main branch (commit a61a1b4) contains ALL the optimizations from the conflic
 ### Telegram Bot Async (from PR #14):
 - ✅ Blocking DB operations moved to threadpool via `save_issue_to_db` helper
 
-### Missing Feature:
+### Features Not in Main:
 - ❌ `user_email` field in Issue model (from PR #14) - only unique feature not in main
 
 ## Next Steps
