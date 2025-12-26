@@ -44,7 +44,13 @@ async def lifespan(app: FastAPI):
     
     # Shutdown: Stop Telegram Bot
     if bot_task and not bot_task.done():
-        bot_task.cancel()
+        try:
+            bot_task.cancel()
+            await bot_task
+        except asyncio.CancelledError:
+            pass  # Expected when cancelling
+        except Exception as e:
+            print(f"Error cancelling bot task: {e}")
     
     if bot_app:
         try:
